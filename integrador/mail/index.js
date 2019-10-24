@@ -1,5 +1,7 @@
 'use strict';
+
 const nodemailer = require('nodemailer');
+
 async function main() {
     // Generate test SMTP service account from ethereal.email
     // Only needed if you don't have a real mail account for testing
@@ -18,7 +20,7 @@ async function main() {
 
     let mailOptions = {
         from: 'tp2ort.integrador@gmail.com',
-        to: 'pablorozek@gmail.com;rodriguez.emanuel14@gmail.com;tp2ort.integrador@gmail.com',
+        to: 'ydres6@gmail.com;rodriguez.emanuel14@gmail.com;yamiladeluqui@gmail.com',
         subject: 'miravo',
         text: 'sos crack pablo',
         html: 
