@@ -1,0 +1,58 @@
+[
+    {
+        "dni": 567,
+        "fecha": "2019-03-22T17:00:26.000Z",
+        "nombre": "ariel",
+        "apellido": "martinez",
+        "pago": 30
+    },
+    {
+        "dni": 456,
+        "fecha": "2019-03-23T17:13:26.000Z",
+        "nombre": "paul",
+        "apellido": "Ropez",
+        "pago": 100
+    },
+    {
+        "dni": 567,
+        "fecha": "2019-03-23T17:13:26.000Z",
+        "nombre": "ariel",
+        "apellido": "martinez",
+        "pago": 150
+    },
+    {
+        "dni": 234,
+        "fecha": "2019-03-23T17:13:26.000Z",
+        "nombre": "coca",
+        "apellido": "gutierrez",
+        "pago": 400
+    },
+    {
+        "dni": 123,
+        "fecha": "2019-03-23T17:13:26.000Z",
+        "nombre": "pepe",
+        "apellido": "perez",
+        "pago": 400
+    },
+    {
+        "dni": 345,
+        "fecha": "2019-03-23T17:13:26.000Z",
+        "nombre": "lisa",
+        "apellido": "fernandez",
+        "pago": 100
+    },
+    {
+        "dni": 567,
+        "fecha": "2019-03-22T17:13:26.000Z",
+        "nombre": "ariel",
+        "apellido": "martinez",
+        "pago": 50
+    },
+    {
+        "dni": 678,
+        "fecha": "2019-03-22T17:00:26.000Z",
+        "nombre": "daniela",
+        "apellido": "gimenez",
+        "pago": 100
+    }
+]

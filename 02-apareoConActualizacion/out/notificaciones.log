@@ -1,0 +1,26 @@
+
+dni: 234 posee $100 a su favor
+
+=================================
+
+error al querer actualizar esta deuda:
+{ id: 4, dni: 456, nombre: 'paul', apellido: 'lopez', debe: 600 }
+con este pago:
+{ dni: 456,
+  fecha: '2019-03-23T17:13:26.000Z',
+  nombre: 'paul',
+  apellido: 'Ropez',
+  pago: 100 }
+
+se mantiene el registro original sin cambios
+
+=================================
+
+el siguiente pago no corresponde a ninguna deuda:
+{ dni: 678,
+  fecha: '2019-03-22T17:00:26.000Z',
+  nombre: 'daniela',
+  apellido: 'gimenez',
+  pago: 100 }
+
+=================================

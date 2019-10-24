@@ -1,0 +1,23 @@
+[
+    {
+        "id": 3,
+        "dni": 345,
+        "nombre": "lisa",
+        "apellido": "fernandez",
+        "debe": 100
+    },
+    {
+        "id": 4,
+        "dni": 456,
+        "nombre": "paul",
+        "apellido": "lopez",
+        "debe": 600
+    },
+    {
+        "id": 5,
+        "dni": 567,
+        "nombre": "ariel",
+        "apellido": "martinez",
+        "debe": 120
+    }
+]

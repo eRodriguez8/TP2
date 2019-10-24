@@ -1,0 +1,37 @@
+[
+    {
+        "id": 3,
+        "dni": 345,
+        "nombre": "lisa",
+        "apellido": "fernandez",
+        "debe": 200
+    },
+    {
+        "id": 4,
+        "dni": 456,
+        "nombre": "paul",
+        "apellido": "lopez",
+        "debe": 600
+    },
+    {
+        "id": 1,
+        "dni": 123,
+        "nombre": "pepe",
+        "apellido": "perez",
+        "debe": 400
+    },
+    {
+        "id": 2,
+        "dni": 234,
+        "nombre": "coca",
+        "apellido": "gutierrez",
+        "debe": 300
+    },
+    {
+        "id": 5,
+        "dni": 567,
+        "nombre": "ariel",
+        "apellido": "martinez",
+        "debe": 350
+    }
+]
