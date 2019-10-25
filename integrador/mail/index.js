@@ -1,12 +1,10 @@
 'use strict';
-
 const nodemailer = require('nodemailer');
+// var smtpTransport = require('nodemailer-smtp-transport');
+// var handlebars = require('handlebars');
+// var fs = require('fs');
 
-async function main() {
-    // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
-    const nodemailer = require('nodemailer');
-
+function enviarMail(from, to, subject, text, path, attachments) {
     let transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
@@ -18,19 +16,33 @@ async function main() {
         }
     });
 
+    // let readHTMLFile = function(path, callback) {
+    //     fs.readFile(path, {encoding: 'utf-8'}, function (err, html) {
+    //         if (err) {
+    //             throw err;
+    //             callback(err);
+    //         }
+    //         else {
+    //             callback(null, html);
+    //         }
+    //     });
+    // };
+
+    // readHTMLFile(path, function(err, html) {
+    //     var template = handlebars.compile(html);
+    //     var replacements = {
+    //          username: "John Doe"
+    //     };
+    //     var htmlToSend = template(replacements);
+    // });
+
     let mailOptions = {
-        from: 'tp2ort.integrador@gmail.com',
-        to: 'ydres6@gmail.com;rodriguez.emanuel14@gmail.com;yamiladeluqui@gmail.com',
-        subject: 'miravo',
-        text: 'sos crack pablo',
-        html: 
-            '<p><b>Hola</b> puto el que lee</p>' +
-            '<p>Here\'s a nyan cat for you as an embedded attachment:<br/><img src="cid:nyan@example.com"/></p>',
-        attachments: [{
-            filename: 'nyan cat ✔.gif',
-            path: __dirname + '/assets/nyan.gif',
-            cid: 'nyan@example.com' // should be as unique as possible
-        }]
+        from: from,
+        to: to,
+        subject: subject,
+        text: text,
+        html: path,
+        attachments: attachments
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -39,5 +51,9 @@ async function main() {
         }
         console.log('success');
     });
+
 }
-main()
+
+module.exports = {
+    enviarMail
+}
