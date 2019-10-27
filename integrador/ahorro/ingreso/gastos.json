@@ -1,0 +1,506 @@
+{"gastos": 
+    {
+      "indice": 0,
+      "monto": "$3,079.17",
+      "categoria": "comida",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 1,
+      "fecha": "2019-07-02"
+    },
+    {
+      "indice": 1,
+      "monto": "$142.65",
+      "categoria": "hogar",
+      "descripcion": "e",
+      "periodico": true,
+      "prioridad": 1,
+      "fecha": "2019-08-27"
+    },
+    {
+      "indice": 2,
+      "monto": "$1,459.93",
+      "categoria": "tarjeta",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 4,
+      "fecha": "2019-03-20"
+    },
+    {
+      "indice": 3,
+      "monto": "$2,345.90",
+      "categoria": "hogar",
+      "descripcion": "a",
+      "periodico": true,
+      "prioridad": 2,
+      "fecha": "2019-09-16"
+    },
+    {
+      "indice": 4,
+      "monto": "$3,315.25",
+      "categoria": "ocio",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 5,
+      "fecha": "2019-03-21"
+    },
+    {
+      "indice": 5,
+      "monto": "$2,531.18",
+      "categoria": "comida",
+      "descripcion": "c",
+      "periodico": false,
+      "prioridad": 2,
+      "fecha": "2019-08-05"
+    },
+    {
+      "indice": 6,
+      "monto": "$2,379.47",
+      "categoria": "servicio",
+      "descripcion": "e",
+      "periodico": true,
+      "prioridad": 4,
+      "fecha": "2019-08-05"
+    },
+    {
+      "indice": 7,
+      "monto": "$1,995.28",
+      "categoria": "servicio",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 4,
+      "fecha": "2019-04-24"
+    },
+    {
+      "indice": 8,
+      "monto": "$2,438.79",
+      "categoria": "hogar",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 5,
+      "fecha": "2019-01-01"
+    },
+    {
+      "indice": 9,
+      "monto": "$2,699.89",
+      "categoria": "servicio",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 4,
+      "fecha": "2019-04-19"
+    },
+    {
+      "indice": 10,
+      "monto": "$2,922.20",
+      "categoria": "servicio",
+      "descripcion": "e",
+      "periodico": true,
+      "prioridad": 2,
+      "fecha": "2019-01-17"
+    },
+    {
+      "indice": 11,
+      "monto": "$1,467.61",
+      "categoria": "servicio",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 3,
+      "fecha": "2019-01-06"
+    },
+    {
+      "indice": 12,
+      "monto": "$166.21",
+      "categoria": "tarjeta",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-04-16"
+    },
+    {
+      "indice": 13,
+      "monto": "$1,725.43",
+      "categoria": "servicio",
+      "descripcion": "e",
+      "periodico": true,
+      "prioridad": 5,
+      "fecha": "2019-05-19"
+    },
+    {
+      "indice": 14,
+      "monto": "$3,999.19",
+      "categoria": "comida",
+      "descripcion": "e",
+      "periodico": true,
+      "prioridad": 4,
+      "fecha": "2019-03-10"
+    },
+    {
+      "indice": 15,
+      "monto": "$655.10",
+      "categoria": "servicio",
+      "descripcion": "d",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-10-09"
+    },
+    {
+      "indice": 16,
+      "monto": "$3,061.01",
+      "categoria": "hogar",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-01-01"
+    },
+    {
+      "indice": 17,
+      "monto": "$1,619.85",
+      "categoria": "ocio",
+      "descripcion": "d",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-10-24"
+    },
+    {
+      "indice": 18,
+      "monto": "$310.56",
+      "categoria": "hogar",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 4,
+      "fecha": "2019-07-16"
+    },
+    {
+      "indice": 19,
+      "monto": "$1,821.15",
+      "categoria": "ocio",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 5,
+      "fecha": "2019-01-24"
+    },
+    {
+      "indice": 20,
+      "monto": "$2,029.68",
+      "categoria": "tarjeta",
+      "descripcion": "a",
+      "periodico": true,
+      "prioridad": 1,
+      "fecha": "2019-02-25"
+    },
+    {
+      "indice": 21,
+      "monto": "$1,998.03",
+      "categoria": "hogar",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 4,
+      "fecha": "2019-03-06"
+    },
+    {
+      "indice": 22,
+      "monto": "$1,754.61",
+      "categoria": "tarjeta",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 4,
+      "fecha": "2019-03-02"
+    },
+    {
+      "indice": 23,
+      "monto": "$3,035.80",
+      "categoria": "tarjeta",
+      "descripcion": "d",
+      "periodico": false,
+      "prioridad": 2,
+      "fecha": "2019-01-21"
+    },
+    {
+      "indice": 24,
+      "monto": "$1,353.20",
+      "categoria": "hogar",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 4,
+      "fecha": "2019-03-19"
+    },
+    {
+      "indice": 25,
+      "monto": "$3,332.37",
+      "categoria": "tarjeta",
+      "descripcion": "b",
+      "periodico": true,
+      "prioridad": 1,
+      "fecha": "2019-03-15"
+    },
+    {
+      "indice": 26,
+      "monto": "$2,519.83",
+      "categoria": "ocio",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 5,
+      "fecha": "2019-02-16"
+    },
+    {
+      "indice": 27,
+      "monto": "$2,819.43",
+      "categoria": "ocio",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 3,
+      "fecha": "2019-10-05"
+    },
+    {
+      "indice": 28,
+      "monto": "$1,568.95",
+      "categoria": "ocio",
+      "descripcion": "b",
+      "periodico": false,
+      "prioridad": 5,
+      "fecha": "2019-01-14"
+    },
+    {
+      "indice": 29,
+      "monto": "$3,987.54",
+      "categoria": "tarjeta",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 2,
+      "fecha": "2019-07-09"
+    },
+    {
+      "indice": 30,
+      "monto": "$2,088.20",
+      "categoria": "ocio",
+      "descripcion": "c",
+      "periodico": true,
+      "prioridad": 3,
+      "fecha": "2019-06-23"
+    },
+    {
+      "indice": 31,
+      "monto": "$1,156.19",
+      "categoria": "comida",
+      "descripcion": "b",
+      "periodico": true,
+      "prioridad": 3,
+      "fecha": "2019-09-03"
+    },
+    {
+      "indice": 32,
+      "monto": "$2,610.18",
+      "categoria": "ocio",
+      "descripcion": "d",
+      "periodico": false,
+      "prioridad": 2,
+      "fecha": "2019-08-04"
+    },
+    {
+      "indice": 33,
+      "monto": "$3,706.07",
+      "categoria": "ocio",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 3,
+      "fecha": "2019-02-04"
+    },
+    {
+      "indice": 34,
+      "monto": "$2,412.46",
+      "categoria": "servicio",
+      "descripcion": "d",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-10-25"
+    },
+    {
+      "indice": 35,
+      "monto": "$2,157.58",
+      "categoria": "comida",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-08-22"
+    },
+    {
+      "indice": 36,
+      "monto": "$109.39",
+      "categoria": "servicio",
+      "descripcion": "e",
+      "periodico": true,
+      "prioridad": 2,
+      "fecha": "2019-01-16"
+    },
+    {
+      "indice": 37,
+      "monto": "$996.34",
+      "categoria": "servicio",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 1,
+      "fecha": "2019-05-17"
+    },
+    {
+      "indice": 38,
+      "monto": "$3,939.22",
+      "categoria": "servicio",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 5,
+      "fecha": "2019-03-14"
+    },
+    {
+      "indice": 39,
+      "monto": "$2,579.32",
+      "categoria": "ocio",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-01-14"
+    },
+    {
+      "indice": 40,
+      "monto": "$3,252.15",
+      "categoria": "ocio",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 3,
+      "fecha": "2019-05-05"
+    },
+    {
+      "indice": 41,
+      "monto": "$3,197.56",
+      "categoria": "tarjeta",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 2,
+      "fecha": "2019-01-24"
+    },
+    {
+      "indice": 42,
+      "monto": "$3,117.43",
+      "categoria": "servicio",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 4,
+      "fecha": "2019-04-21"
+    },
+    {
+      "indice": 43,
+      "monto": "$2,134.30",
+      "categoria": "hogar",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 5,
+      "fecha": "2019-02-15"
+    },
+    {
+      "indice": 44,
+      "monto": "$2,278.03",
+      "categoria": "hogar",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 4,
+      "fecha": "2019-10-01"
+    },
+    {
+      "indice": 45,
+      "monto": "$1,810.38",
+      "categoria": "ocio",
+      "descripcion": "c",
+      "periodico": false,
+      "prioridad": 2,
+      "fecha": "2019-08-08"
+    },
+    {
+      "indice": 46,
+      "monto": "$2,253.88",
+      "categoria": "tarjeta",
+      "descripcion": "e",
+      "periodico": true,
+      "prioridad": 1,
+      "fecha": "2019-10-07"
+    },
+    {
+      "indice": 47,
+      "monto": "$1,487.12",
+      "categoria": "comida",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 5,
+      "fecha": "2019-03-05"
+    },
+    {
+      "indice": 48,
+      "monto": "$1,298.00",
+      "categoria": "ocio",
+      "descripcion": "a",
+      "periodico": false,
+      "prioridad": 4,
+      "fecha": "2019-07-19"
+    },
+    {
+      "indice": 49,
+      "monto": "$3,120.64",
+      "categoria": "ocio",
+      "descripcion": "c",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-08-05"
+    },
+    {
+      "indice": 50,
+      "monto": "$2,597.51",
+      "categoria": "tarjeta",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 2,
+      "fecha": "2019-08-30"
+    },
+    {
+      "indice": 51,
+      "monto": "$2,962.71",
+      "categoria": "comida",
+      "descripcion": "d",
+      "periodico": true,
+      "prioridad": 5,
+      "fecha": "2019-02-17"
+    },
+    {
+      "indice": 52,
+      "monto": "$624.31",
+      "categoria": "ocio",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 5,
+      "fecha": "2019-09-28"
+    },
+    {
+      "indice": 53,
+      "monto": "$2,683.11",
+      "categoria": "hogar",
+      "descripcion": "e",
+      "periodico": false,
+      "prioridad": 4,
+      "fecha": "2019-03-11"
+    },
+    {
+      "indice": 54,
+      "monto": "$2,809.84",
+      "categoria": "servicio",
+      "descripcion": "c",
+      "periodico": false,
+      "prioridad": 3,
+      "fecha": "2019-08-01"
+    },
+    {
+      "indice": 55,
+      "monto": "$1,036.71",
+      "categoria": "hogar",
+      "descripcion": "c",
+      "periodico": false,
+      "prioridad": 1,
+      "fecha": "2019-06-06"
+    }
+  ]
