@@ -1,6 +1,6 @@
 const sendMail = require('./mail/index.js')
 const email = 'tp2ort.integrador@gmail.com'
-const mailDestino = 'mariano.aquino@ort.edu.ar'
+const mailDestino = 'ydeluqui@psa.com.ar'
 
 async function testSendMailConSubject() {
     let result = false
@@ -41,7 +41,7 @@ async function testSendMailConSubjectConTexto() {
 async function testSendMailConHtml() {
     let result = false
     let html = 
-            '<p><b>Hola</b> Yamila</p>' +
+            '<p><b>Hola</b> sujeto</p>' +
             '<p>Here\'s a nyan cat for you as an embedded attachment:<br/>' + 
             '<img src="cid:nyan@example.com"/></p>'
     try {
@@ -73,7 +73,7 @@ async function testSendMailConSubjectConTextoConHtml() {
 async function testSendMailConSubjectConTextoConHtmlConAdjunto() {
     let result = false
     let html = 
-            '<p><b>Hola</b> Yamila</p>' +
+            '<p><b>Hola</b> Diego </p>' +
             '<p>Here\'s a nyan cat for you as an embedded attachment:<br/>' + 
             '<img src="cid:nyan@example.com"/></p>'
     let adjunto = [{
@@ -83,7 +83,7 @@ async function testSendMailConSubjectConTextoConHtmlConAdjunto() {
     }]
 
     try {
-        const mail = await sendMail.enviarMail(email, mailDestino, 'Adjunto', 'Puto el que lee', html, adjunto)
+        const mail = await sendMail.enviarMail(email, mailDestino, 'Prueba', 'Prueba2', html, adjunto)
         console.log("email with text: ok")
         result = true
     } catch (err) {
@@ -111,13 +111,13 @@ async function testSendMailConPlantilla() {
 async function main() {
     let exitos = 0
     const tests = [
-        testSendMailConSubject,
-        testSendMailConTexto,
-        testSendMailConSubjectConTexto,
-        testSendMailConHtml,
-        testSendMailConSubjectConTextoConHtml,
-        testSendMailConSubjectConTextoConHtmlConAdjunto
-        // testSendMailConPlantilla
+    //testSendMailConSubject,
+    //tSendMailConTexto,
+    //testSendMailConSubjectConTexto,
+    //testSendMailConHtml,
+    //  testSendMailConSubjectConTextoConHtml,
+    testSendMailConSubjectConTextoConHtmlConAdjunto,
+    // testSendMailConPlantilla
     ]
 
     for (const test of tests) {
