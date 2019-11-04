@@ -3,7 +3,10 @@ var url=require('url');
 var fs=require('fs');
 var formidable=require('formidable');
 
-var mime = {
+//const express = require('express');
+//const app = express();
+
+const mime = {
    'html' : 'text/html',
    'css'  : 'text/css',
    'jpg'  : 'image/jpg',
@@ -22,6 +25,15 @@ var servidor=http.createServer(function(pedido,respuesta){
 
 servidor.listen(8888);
 
+//const puerto = 8080
+//app.listen(puerto, () => {
+   // console.log(`servidor inicializado en puerto ${puerto}`)
+//})
+
+
+app.get('/public/index.html',(req, res) => {
+	console.log('GETTING: ' + req.url))
+	if 
 
 function encaminar (pedido,respuesta,camino) {
 	
