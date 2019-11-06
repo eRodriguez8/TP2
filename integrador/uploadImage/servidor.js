@@ -9,12 +9,18 @@ app.use(fileUpload())
 
 app.post('/upload',(req,res) => {
   let EDFile = req.files.file
-  EDFile.mv(`./public/files/${EDFile.name}`,err => {
+  EDFile.mv(`./public/fotos/${EDFile.name}`,err => {
       if(err) return res.status(500).send({ message : err })
 
-      return res.status(200).send({ message : 'File upload' })
+      return res.status(200).send({ message : 'Archivo subido correctamente' })
   })
 })
+
+
+app.get('/:img', function(req, res){
+  res.sendFile( `fotos/${img}` );
+});
+
 
 
 
