@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const fileUpload = require('express-fileupload')
+//const router = require('express').router()
 
 
 app.use(express.static('public'))
@@ -16,10 +17,29 @@ app.post('/upload',(req,res) => {
   })
 })
 
+//const baseFotos = '/public/fotos'
 
-app.get('/:img', function(req, res){
-  res.sendFile( `fotos/${img}` );
-});
+
+app.get('/fotos/:name', function (req, res, next) {
+    var options = {
+      root: path.join(__dirname, 'public'),
+      dotfiles: 'deny',
+      headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
+      }
+    }
+  
+    var fileName = req.params.name
+    res.sendFile(fileName, options, function (err) {
+      if (err) {
+        next(err)
+     } else {
+        console.log('Sent:', fileName)
+      }
+    })
+  })
+
 
 
 
