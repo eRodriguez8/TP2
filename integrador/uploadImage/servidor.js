@@ -1,7 +1,5 @@
 const express = require('express');
 const app = express();
-const fileUpload = require('express-fileupload')
-//const router = require('express').router()
 
 
 app.use(express.static('public'))
