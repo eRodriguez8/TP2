@@ -1,49 +1,29 @@
 const express = require('express');
 const app = express();
-const fileUpload = require('express-fileupload')
-//const router = require('express').router()
 
-
-app.use(express.static('public'))
-app.use(fileUpload())
-
-
-app.post('/upload',(req,res) => {
-  let EDFile = req.files.file
-  EDFile.mv(`./public/fotos/${EDFile.name}`,err => {
-      if(err) return res.status(500).send({ message : err })
-
-      return res.status(200).send({ message : 'Archivo subido correctamente' })
-  })
-})
-
+const cargaFotos = require('./public/routes/cargarArchivo')
+app.use('./api',cargaFotos)
 //const baseFotos = '/public/fotos'
+//const fileUpload = require('express-fileupload')
+app.use(express.static('public'))
+//app.use(fileUpload())
 
 
-app.get('/fotos/:name', function (req, res, next) {
-    var options = {
-      root: path.join(__dirname, 'public'),
-      dotfiles: 'deny',
-      headers: {
-        'x-timestamp': Date.now(),
-        'x-sent': true
-      }
-    }
-  
-    var fileName = req.params.name
-    res.sendFile(fileName, options, function (err) {
-      if (err) {
-        next(err)
-     } else {
-        console.log('Sent:', fileName)
-      }
-    })
-  })
+//app.post('/upload',(req,res) => {
+  //let EDFile = req.files.file
+  //EDFile.mv(`baseURI${EDFile.name}`,err => {
+    //  if(err) return res.status(500).send({ message : err })
+
+    // return res.status(200).send({ message : 'Archivo subido correctamente' })
+  //})
+//})
+const mostrarFoto = require('./public/routes/mostrarFoto')
+app.use( './api/fotos',mostrarFoto)
 
 
 
 
 
-app.listen(3000, function(){
+app.listen(8080, function(){
   console.log('Servidor iniciado');
 })
