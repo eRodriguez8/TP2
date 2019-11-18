@@ -5,16 +5,16 @@ const fileUpload = require('express-fileupload')
 const router = require('express').Router()
 
 
-//app.use(express.static('public'))
+app.use(express.static('public'))
 app.use(fileUpload())
 
 //const baseURI = './public/fotos/'
 router.post('/upload',(req,res) => {
   let EDFile = req.files.file
-  EDFile.mv(`./public/fotos/ baseURI${EDFile.name}`,err => {
-     if(err) return res.status(500).send({ message : err })
+  EDFile.mv(`./public/fotos${EDFile.name}`,err => {
+      if(err) return res.status(500).send({ message : err })
 
-     return res.status(200).send({ message : 'Archivo subido correctamente' })
+      return res.status(200).send({ message : 'Archivo subido correctamente' })
   })
 })
 
