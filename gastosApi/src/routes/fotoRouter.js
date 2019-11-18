@@ -27,14 +27,15 @@ router.get('/:name', function (req, res, next) {
     })
   })
 
-  router.post('/',(req,res) => {
+  router.post('/upload',(req,res) => {
     let EDFile = req.files.file
-    EDFile.mv(`./src/repositories/fotos${EDFile.name}`,err => {
-        if(err) return res.status(500).send({ message : err })
+    EDFile.mv(` baseURI${EDFile.name}`,err => {
+       if(err) return res.status(500).send({ message : err })
   
-        return res.status(200).send({ message : 'Archivo subido correctamente' })
+       return res.status(200).send({ message : 'Archivo subido correctamente' })
     })
   })
+  
 
 
 

@@ -4,7 +4,7 @@ const app = express()
 app.use(express.json())
 //app.use(express.static('src'))
 //app.use('/static', express.static('src'));
-app.use('/repo', express.static(__dirname + '/repositories/fotos'))
+app.use('', express.static(__dirname + '/repositories/fotos'))
 
 const gastoRouter = require('./routes/gastoRouter')
 const sueldoRouter = require('./routes/sueldoRouter')
