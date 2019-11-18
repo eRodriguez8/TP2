@@ -18,7 +18,7 @@ app.use(express.static('public'))
   //})
 //})
 const mostrarFoto = require('./public/routes/mostrarFoto')
-app.use( './api/fotos',mostrarFoto)
+app.use( './api',mostrarFoto)
 
 
 

@@ -6,7 +6,7 @@ const router = require('express').Router()
 
 router.get('/:name', function (req, res, next) {
     var options = {
-      root: path.join(baseURI, 'public'),
+      root: path.join( 'public'),
       dotfiles: 'deny',
       headers: {
         'x-timestamp': Date.now(),
