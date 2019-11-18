@@ -14,7 +14,7 @@ app.post('/upload',(req,res) => {
   EDFile.mv(`./public/fotos/ baseURI${EDFile.name}`,err => {
      if(err) return res.status(500).send({ message : err })
 
-     return res.status(200).send({ message : 'Archivo subido correctamente' })
+    return res.status(200).send({ message : 'Archivo subido correctamente' })
   })
 })
 const mostrarFoto = require('./public/routes/mostrarFoto')
