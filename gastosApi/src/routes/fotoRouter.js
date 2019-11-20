@@ -4,7 +4,7 @@ const app = express();
 const router = require('express').Router()
 const fileUpload = require('express-fileupload')
 app.use(fileUpload())
-const baseURI = '/api/v1/fotos'
+//const baseURI = '/api/v1/fotos'
 
 router.get('/:name', function (req, res, next) {
     var options = {
