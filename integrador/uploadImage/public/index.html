@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <title>Cargar Imagenes a servidor</title>
+
+  <h1>  Carga de imagenes a servidor</h1>
+
+</head>
+<body>
+   <form>
+         <input type="button" onclick="window.location.href = 'formulario.html';" value="Upload de foto"/>
+         <input type="button" onclick="window.location.href = 'formulario.html';" value="Listado de fotos"/>
+      </form>
+      <form action='http://localhost:8080/upload' method="POST" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Subir">
+</form>
+
+
+<form ref='uploadForm' 
+			id='uploadForm' 
+			action='/upload' 
+			method='post' 
+			encType="multipart/form-data">
+				<input type="file" name="sampleFile" />
+				<input type='submit' value='Upload!' />
+		</form>		
+</body>
+</html>
+
+
+
+<style>
+.title{
+margin-left:20;
+}
+
+
+
+.form{
+  display : aling-center;
+}
+
+</style>
