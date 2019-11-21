@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const cargaFotos = require('./public/routes/cargarArchivo')
-app.use('./api',cargaFotos)
+app.use('./api/upload',cargaFotos)
 //const baseFotos = '/public/fotos'
 //const fileUpload = require('express-fileupload')
 app.use(express.static('public'))

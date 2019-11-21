@@ -16,6 +16,8 @@ app.use('/api/v1/sueldos', sueldoRouter)
 app.use('/api/v1/usuarios', usuarioRouter)
  app.use('/api/v1/fotos', fotoRouter)
 
+
+
 const puerto = 5000
 app.listen(puerto, () => {
     // eslint-disable-next-line no-console

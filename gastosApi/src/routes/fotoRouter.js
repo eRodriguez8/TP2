@@ -27,8 +27,8 @@ router.get('/:name', function (req, res, next) {
     })
   })
 
-  router.post('/upload',(req,res) => {
-    let EDFile = req.files.file
+ router.post('/upload',(req,res) => {
+   let EDFile = req.files.file
     EDFile.mv(` baseURI${EDFile.name}`,err => {
        if(err) return res.status(500).send({ message : err })
   
