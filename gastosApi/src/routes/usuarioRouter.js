@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const Joi = require('@hapi/joi')
 const router = require('express').Router()
-const service = require('../services/usuarioService')
+const UsuarioService = require('../services/usuarioService')
 
 const baseURI = '/api/v1/usuarios'
 
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
     try {
         let result
         if (_.isEmpty(req.query)) {
-            result = await service.getAll()
+            result = await UsuarioService.getAll()
         } else {
             throw { status: 400, operacion: "GET", descripcion: 'parametros de consulta invalidos' }
         }
@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
     console.log('GETTING: ' + baseURI + req.url)
 
     try {
-        const usuarioBuscado = await service.getById(req.params.id)
+        const usuarioBuscado = await UsuarioService.getById(req.params.id)
         if (!usuarioBuscado) {
             throw { status: 404, operacion: "GET/id", descripcion: 'usuario no encontrado' }
         }
@@ -47,7 +47,7 @@ router.post('/', async (req, res) => {
             throw { status: 400, operacion: "POST", descripcion: 'el usuario posee un formato json invalido o faltan datos' }
         }
 
-        const usuarioCreado = await service.add(nuevoUsuario)
+        const usuarioCreado = await UsuarioService.add(nuevoUsuario)
         res.status(201).json(usuarioCreado)
     } catch (err) {
         res.status(err.status).json(err)
@@ -59,7 +59,7 @@ router.delete('/:id', async (req, res) => {
     console.log('DELETING: ' + baseURI + req.url)
 
     try {
-        await service.deleteById(req.params.id)
+        await UsuarioService.deleteById(req.params.id)
         res.status(204).send()
     } catch (err) {
         res.status(err.status).json(err)
@@ -82,7 +82,7 @@ router.put('/:id', async (req, res) => {
             throw { status: 400, operacion: "PUT", descripcion: 'no coinciden los ids enviados' }
         }
 
-        const usuarioActualizado = await service.updateById(req.params.id, nuevoUsuario)
+        const usuarioActualizado = await UsuarioService.updateById(req.params.id, nuevoUsuario)
 
         res.json(usuarioActualizado)
     } catch (err) {

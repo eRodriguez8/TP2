@@ -1,22 +1,22 @@
-const repository = require('../repositories/usuarioRepository')
+const repoUsuarios = require('../repositories/usuarioRepository')
 
 async function getAll() {
-    const result = repository.getAll()
+    const result = repoUsuarios.getAll()
     return result
 }
 
 async function getById(id) {
-    const result = repository.getById(id)
+    const result = repoUsuarios.getById(id)
     return result
 }
 
 async function add(nuevo) {
-    const result = repository.add(nuevo)
+    const result = repoUsuarios.add(nuevo)
     return result
 }
 
 async function deleteById(id) {
-    const result = repository.deleteById(id)
+    const result = repoUsuarios.deleteById(id)
     
     if (result == 0) {
         throw { status: 404, operacion: "deleteById", descripcion: "no existe un usuario con el id dado" }
@@ -25,7 +25,7 @@ async function deleteById(id) {
 }
 
 async function updateById(id, nuevoUsuario) {
-    const result = repository.updateById(id, nuevoUsuario)
+    const result = repoUsuarios.updateById(id, nuevoUsuario)
     
     if (result == 0) {
         throw { status: 404, operacion: "updateById", descripcion: "no existe un estudiante con el id dado" }

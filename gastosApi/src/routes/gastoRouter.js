@@ -4,6 +4,7 @@ const router = require('express').Router()
 const service = require('../services/gastoService')
 
 const baseURI = '/api/v1/gastos'
+const baseURIFoto = '/api/v1/gastos/:id/fotos/upload/:name'
 
 router.get('/', async (req, res) => {
     // eslint-disable-next-line no-console

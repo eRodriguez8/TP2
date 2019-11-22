@@ -41,3 +41,29 @@ knex.schema.createTable('foto', (table) => {
 })
     .then(() => console.log("listo"))
     .catch(error => console.log(error))
+
+/* TABLAS DE RELACION */
+
+knex.schema.createTable('gastoFoto', (table) => {
+    table.increments('id')
+    table.string('idGasto')
+    table.string('idFoto')
+})
+    .then(() => console.log("listo"))
+    .catch(error => console.log(error))
+
+knex.schema.createTable('usuarioSueldo', (table) => {
+    table.increments('id')
+    table.string('idUsuario')
+    table.string('idSueldo')
+})
+    .then(() => console.log("listo"))
+    .catch(error => console.log(error))
+
+knex.schema.createTable('usuarioGasto', (table) => {
+    table.increments('id')
+    table.string('idUsuario')
+    table.string('idGasto')
+})
+    .then(() => console.log("listo"))
+    .catch(error => console.log(error))
