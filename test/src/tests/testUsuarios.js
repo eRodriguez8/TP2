@@ -19,11 +19,27 @@ function validarUsuario(usuario) {
     }
 }
 
+
+
 function validarUsuarios(usuarios) {
     for (const usuario of usuarios) {
         validarUsuario(usuario)
     }
 }
+
+//function validarSueldo(sueldo) {
+   // const sueldoSchema = {
+      //  id: Joi.number().integer().min(0),
+      //  monto: Joi.number().min(1).max(99999999).required(),
+      //// fecha:Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY']),
+      //  apellido: Joi.string().alphanum().min(1).required()
+        
+   // }
+   // const { error } = Joi.validate(sueldo, sueldoSchema)
+  //  if (error) {
+     //   throw error
+   // }
+//}
 
 
 // TESTS
