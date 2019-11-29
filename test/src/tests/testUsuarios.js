@@ -27,19 +27,27 @@ function validarUsuarios(usuarios) {
     }
 }
 
-//function validarSueldo(sueldo) {
-   // const sueldoSchema = {
-      //  id: Joi.number().integer().min(0),
-      //  monto: Joi.number().min(1).max(99999999).required(),
-      //// fecha:Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY']),
-      //  apellido: Joi.string().alphanum().min(1).required()
+function validarSueldo(sueldo) {
+    const sueldoSchema = {
+        id: Joi.number().integer().min(0),
+       monto: Joi.number().min(1).max(99999999).required(),
+       apellido: Joi.string().alphanum().min(1).required(),
+       fecha:Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY'])
+       
         
-   // }
-   // const { error } = Joi.validate(sueldo, sueldoSchema)
-  //  if (error) {
-     //   throw error
-   // }
-//}
+    }
+    const { error } = Joi.validate(sueldo, sueldoSchema)
+   if (error) {
+       throw error
+    }
+}
+
+function validarSueldos(sueldo) {
+    for (const sueldo of sueldos) {
+        validarSUeldo(sueldo)
+    }
+}
+
 
 
 // TESTS
@@ -48,13 +56,13 @@ async function testPostWithBody() {
     let result = false
     try {
         const usuCreado = await usu.crearUsuario({
-            nombre: 'post',
+        
             apellido: 'withBody',
             dni: '11122233',
             mail: 'ss@mail.com'
         })
         await usu.borrarUsuario(usuCreado.id)
-        validarUsuario(usuCreado)
+        validarSueldo(usuCreado)
         console.log("post with body: ok")
         result = true
     } catch (err) {
@@ -63,12 +71,47 @@ async function testPostWithBody() {
     return result
 }
 
+//async function testPostWithoutBodySueldo() {
+   // let result = false
+   // try {
+    //    const sueCreado = await usu.crearSueldo()
+    //    console.log("post without body: error - no rechazó la petición!")
+    //    await sue.borrarSueldo(sueCreado.id)
+  //  } catch (err) {
+   //     if (err.statusCode == 400) {
+    //        console.log('post without body: ok (with expected error)')
+     //       result = true
+      //  } else {
+       //     console.log(err.message)
+    //    }
+ //   }
+   // return result
+//}
+
+//async function testPostWithBodySueldo() {
+  //  let result = false
+   // try {
+     //   const usuCreado = await usu.crearSueldo({
+      //      monto: 40000,
+      //      fecha: '15/12/2019',
+       //     descripcion: 'mes noviembre'
+      //  })
+      //  await usu.borrarSueldo(usuCreado.id)
+      //  validarSueldo(usuCreado)
+     //   console.log("post with body: ok")
+    //    result = true
+  //  } catch (err) {
+   //     console.log(err.message)
+ //   }
+    //return result
+//}
+
 async function testPostWithoutBody() {
     let result = false
     try {
-        const usuCreado = await usu.crearUsuario()
+        const usuCreado = await usu.crearSueldo()
         console.log("post without body: error - no rechazó la petición!")
-        await usu.borrarUsuario(usuCreado.id)
+        await usu.borrarSueldo(usuCreado.id)
     } catch (err) {
         if (err.statusCode == 400) {
             console.log('post without body: ok (with expected error)')
@@ -375,6 +418,8 @@ async function main() {
     const tests = [
         testPostWithBody,
         testPostWithoutBody,
+        //testPostWithBodySueldo,
+        //testPostWithoutBodySueldo,
         testGetAll,
         testGetWithValidIdentifier,
         testGetWithInvalidIdentifier,

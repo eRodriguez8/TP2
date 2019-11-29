@@ -22,6 +22,27 @@ async function borrarUsuario(id) {
         json: true
     })
 }
+
+//async function crearSueldo(sueldo) {
+    //const postOpt = {
+    //    method: 'POST',
+    //    uri: serverUrl + 'sueldos',
+     //   json: true
+   // }
+   // if (usuario) {
+   //     postOpt.body = usuario
+   // }
+   // return await request(postOpt)
+//}
+
+
+//async function borrarSueldo(id) {
+    //await request({
+        //method: 'DELETE',
+        //uri: serverUrl + 'sueldos/' + id,
+        //json: true
+    //})
+//}
 //
 async function buscarTodos() {
     return await request({
@@ -63,5 +84,7 @@ module.exports = {
     buscarPorId,
     crearUsuario,
     borrarUsuario,
-    reemplazarPorId
+    reemplazarPorId,
+    borrarSueldo,
+    crearSueldo
 }
