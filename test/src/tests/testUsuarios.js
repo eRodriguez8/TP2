@@ -56,13 +56,13 @@ async function testPostWithBody() {
     let result = false
     try {
         const usuCreado = await usu.crearUsuario({
-        
+            nombre: 'Body',
             apellido: 'withBody',
             dni: '11122233',
             mail: 'ss@mail.com'
         })
         await usu.borrarUsuario(usuCreado.id)
-        validarSueldo(usuCreado)
+        validarUsuario(usuCreado)
         console.log("post with body: ok")
         result = true
     } catch (err) {
@@ -109,9 +109,9 @@ async function testPostWithBody() {
 async function testPostWithoutBody() {
     let result = false
     try {
-        const usuCreado = await usu.crearSueldo()
+        const usuCreado = await usu.crearUsuario()
         console.log("post without body: error - no rechazó la petición!")
-        await usu.borrarSueldo(usuCreado.id)
+        await usu.borrarUsuario(usuCreado.id)
     } catch (err) {
         if (err.statusCode == 400) {
             console.log('post without body: ok (with expected error)')
