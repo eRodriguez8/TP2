@@ -27,26 +27,26 @@ function validarUsuarios(usuarios) {
     }
 }
 
-function validarSueldo(sueldo) {
-    const sueldoSchema = {
-        id: Joi.number().integer().min(0),
-       monto: Joi.number().min(1).max(99999999).required(),
-       apellido: Joi.string().alphanum().min(1).required(),
-       fecha:Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY'])
+//function validarSueldo(sueldo) {
+  //  const sueldoSchema = {
+   //     id: Joi.number().integer().min(0),
+   ////    monto: Joi.number().min(1).max(99999999).required(),
+     //  apellido: Joi.string().alphanum().min(1).required(),
+     //  fecha:Joi.date().format(['YYYY/MM/DD', 'DD-MM-YYYY'])
        
         
-    }
-    const { error } = Joi.validate(sueldo, sueldoSchema)
-   if (error) {
-       throw error
-    }
-}
+   // }
+  //  const { error } = Joi.validate(sueldo, sueldoSchema)
+  // if (error) {
+  //     throw error
+  //  }
+//}
 
-function validarSueldos(sueldo) {
-    for (const sueldo of sueldos) {
-        validarSUeldo(sueldo)
-    }
-}
+//function validarSueldos(sueldo) {
+//    for (const sueldo of sueldos) {
+ //       validarSueldo(sueldo)
+  //  }
+//}
 
 
 
