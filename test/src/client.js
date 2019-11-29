@@ -43,7 +43,7 @@ async function borrarUsuario(id) {
         //json: true
     //})
 //}
-//
+
 async function buscarTodos() {
     return await request({
         method: 'GET',
@@ -85,6 +85,6 @@ module.exports = {
     crearUsuario,
     borrarUsuario,
     reemplazarPorId,
-    borrarSueldo,
-    crearSueldo
+    //borrarSueldo,
+    //crearSueldo
 }
