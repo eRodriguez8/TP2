@@ -18,19 +18,20 @@ async function add(nuevo) {
 async function deleteById(id) {
     const result = repoUsuarios.deleteById(id)
     
-    if (result == 0) {
+    if (result === 0) {
         throw { status: 404, operacion: "deleteById", descripcion: "no existe un usuario con el id dado" }
     }
-    return
+    return result
 }
 
 async function updateById(id, nuevoUsuario) {
+    console.log('service')
     const result = repoUsuarios.updateById(id, nuevoUsuario)
-    
-    if (result == 0) {
+    console.log('serviceResult = ' + result)
+    if (result === 0) {
         throw { status: 404, operacion: "updateById", descripcion: "no existe un estudiante con el id dado" }
     }
-    return nuevoUsuario
+    return result
 }
 
 module.exports = {

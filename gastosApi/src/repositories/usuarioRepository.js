@@ -33,10 +33,10 @@ async function add(nuevo) {
 async function deleteById(id) {
     try {
         const result = await knex('usuario').where('id', id).del()
-        if (result == 0) {
+        if (result === 0) {
             throw { status: 404, operacion: "deleteById", descripcion: "no existe un usuario con el id dado" }
         }
-        return
+        return result
     } catch (err) {
         if (err.status == 404) {
             throw err
@@ -47,12 +47,14 @@ async function deleteById(id) {
 }
 
 async function updateById(id, nuevoUsuario) {
+    console.log('repo')
     try {
         const result = await knex('usuario').where('id', id).update(nuevoUsuario)
-        if (result == 0) {
+        console.log('repoResult = ' + result)
+        if (result === 0) {
             throw { status: 404, operacion: "updateById", descripcion: "no existe un usuario con el id dado" }
         }
-        return nuevoUsuario
+        return result
     } catch (err) {
         if (err.status == 404) {
             throw err
