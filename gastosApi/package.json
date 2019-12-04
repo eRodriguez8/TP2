@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/server.js",
     "startDev": "./node_modules/.bin/nodemon ./src/server.js",
-    "initDB": "node database/crearDB.js"
+    "initDB": "node database/crearDB.js",
+    "test": "node src/test/usuariosTest/usuario.js"
   },
   "keywords": [],
   "author": "",
