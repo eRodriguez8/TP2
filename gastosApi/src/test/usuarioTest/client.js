@@ -47,26 +47,6 @@ async function buscarTodos() {
     })
 }
 
-async function crearSueldo(sueldo) {
-    const postOpt = {
-       method: 'POST',
-       uri: serverUrl + 'sueldos',
-       json: true
-   }
-   if (usuario) {
-       postOpt.body = sueldo
-   }
-   return await request(postOpt)
-}
-
-async function borrarSueldo(id) {
-    await request({
-        method: 'DELETE',
-        uri: serverUrl + 'sueldos/' + id,
-        json: true
-    })
-}
-
 async function crearGasto(gasto) {
     const postOpt = {
        method: 'POST',
@@ -92,9 +72,5 @@ module.exports = {
     buscarPorId,
     crearUsuario,
     borrarUsuario,
-    reemplazarPorId,
-    borrarSueldo,
-    crearSueldo,
-    borrarGasto,
-    crearGasto
+    reemplazarPorId
 }

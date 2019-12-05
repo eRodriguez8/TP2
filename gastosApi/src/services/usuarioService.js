@@ -25,9 +25,7 @@ async function deleteById(id) {
 }
 
 async function updateById(id, nuevoUsuario) {
-    console.log('service')
     const result = repoUsuarios.updateById(id, nuevoUsuario)
-    console.log('serviceResult = ' + result)
     if (result === 0) {
         throw { status: 404, operacion: "updateById", descripcion: "no existe un estudiante con el id dado" }
     }

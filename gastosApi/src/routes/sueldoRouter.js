@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const Joi = require('@hapi/joi')
 const router = require('express').Router()
-const service = require('../services/sueldoService')
+const SueldoService = require('../services/sueldoService')
 
 const baseURI = '/api/v1/sueldos'
 
@@ -11,11 +11,26 @@ router.get('/', async (req, res) => {
     try {
         let result
         if (_.isEmpty(req.query)) {
-            result = await service.getAll()
+            result = await SueldoService.getAll()
         } else {
             throw { status: 400, operacion: "GET", descripcion: 'parametros de consulta invalidos' }
         }
         res.json(result)
+    } catch (err) {
+        res.status(err.status).json(err)
+    }
+})
+
+router.get('/:id', async (req, res) => {
+    // eslint-disable-next-line no-console
+    console.log('GETTING: ' + baseURI + req.url)
+
+    try {
+        const sueldoBuscado = await SueldoService.getById(req.params.id)
+        if (!sueldoBuscado) {
+            throw { status: 404, operacion: "GET/id", descripcion: 'sueldo no encontrado' }
+        }
+        res.json(sueldoBuscado)
     } catch (err) {
         res.status(err.status).json(err)
     }
@@ -27,11 +42,11 @@ router.post('/', async (req, res) => {
 
     const nuevoSueldo = req.body
     try {
-        if (esSueldoInvalidoPost(nuevoSueldo)) {
+        if (esSueldoInvalido(nuevoSueldo)) {
             throw { status: 400, operacion: "POST", descripcion: 'los datos del sueldo son invalidos' }
         }
 
-        const sueldoCreado = await service.add(nuevoSueldo)
+        const sueldoCreado = await SueldoService.add(nuevoSueldo)
         res.status(201).json(sueldoCreado)
     } catch (err) {
         res.status(err.status).json(err)
@@ -43,7 +58,7 @@ router.delete('/:id', async (req, res) => {
     console.log('DELETING: ' + baseURI + req.url)
 
     try {
-        await service.deleteById(req.params.id)
+        await SueldoService.deleteById(req.params.id)
         res.status(204).send()
     } catch (err) {
         res.status(err.status).json(err)
@@ -66,7 +81,7 @@ router.put('/:id', async (req, res) => {
             throw { status: 400, operacion: "PUT", descripcion: 'no coinciden los ids enviados' }
         }
 
-        const sueldoActualizado = await service.updateById(req.params.id, nuevoSueldo)
+        const sueldoActualizado = await SueldoService.updateById(req.params.id, nuevoSueldo)
 
         res.json(sueldoActualizado)
     } catch (err) {

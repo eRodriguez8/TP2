@@ -47,10 +47,8 @@ async function deleteById(id) {
 }
 
 async function updateById(id, nuevoUsuario) {
-    console.log('repo')
     try {
         const result = await knex('usuario').where('id', id).update(nuevoUsuario)
-        console.log('repoResult = ' + result)
         if (result === 0) {
             throw { status: 404, operacion: "updateById", descripcion: "no existe un usuario con el id dado" }
         }

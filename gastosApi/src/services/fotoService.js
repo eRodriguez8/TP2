@@ -1,23 +1,28 @@
 const repoFotos = require('../repositories/fotoRepository')
+const repoGastoFoto = require('../repositories/gastoFotoRepository')
 
-async function getByName(name) {
-    const ruta = '../repositories/fotos/' + name
-    //metodo que busca en carpeta
-    //devulvo el archivo
-    const result = repoFotos.getById(id)
-    return result
-}
-
-async function deleteByName(id) {
-    const result = repoFotos.deleteById(id)
-    
-    if (result == 0) {
-        throw { status: 404, operacion: "deleteByName", descripcion: "no existe una foto con ese nombre" }
+async function deleteByPath(idGasto, path) {
+    const result = repoFotos.deleteByPath(path)
+    repoGastoFoto.deleteById(idGasto)
+    if (result === 0) {
+        throw { status: 404, operacion: "deleteByPath", descripcion: "no existe una foto con ese nombre" }
     }
-    return
+    return result
 }
 
-async function add(nuevo) {
-    const result = repoFotos.add(nuevo)
+async function add(idGasto, nueva) {
+    const result = repoFotos.add(nueva)
+
+    const relacion = {
+        idGasto: idGasto,
+        idFoto: nueva.id
+    }
+
+    repoGastoFoto.add(relacion)
     return result
+}
+
+module.exports = {
+    deleteByPath,
+    add
 }

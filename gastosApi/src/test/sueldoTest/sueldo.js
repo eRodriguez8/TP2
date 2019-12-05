@@ -1,27 +1,25 @@
 /* eslint-disable no-console */
 const Joi = require('@hapi/joi')
-const usu = require('../client')
+const client = require('./client')
 
 // VALIDACIONES
 
-function validarUsuario(usuario) {
-    const usuarioSchema = {
+function validarSueldo(sueldo) {
+    const sueldoSchema = {
         id: Joi.number().integer().min(0),
-        nombre: Joi.string().alphanum().min(1).required(),
-        apellido: Joi.string().alphanum().min(1).required(),
-        dni: Joi.number().min(1).max(99999999).required(),
-        mail:Joi.string().email().max(256).required()
-        
+        monto: Joi.number().integer().min(1).required(),
+        descripcion: Joi.string().allow('').trim().strict().min(1).required(),
+        fecha: Joi.string().allow('').trim().strict().min(1).required()
     }
-    const { error } = Joi.validate(usuario, usuarioSchema)
+    const { error } = Joi.validate(sueldo, sueldoSchema)
     if (error) {
         throw error
     }
 }
 
-function validarUsuarios(usuarios) {
-    for (const usuario of usuarios) {
-        validarUsuario(usuario)
+function validarSueldos(sueldos) {
+    for (const sueldo of sueldos) {
+        validarSueldo(sueldo)
     }
 }
 
@@ -30,14 +28,13 @@ function validarUsuarios(usuarios) {
 async function testPostWithBody() {
     let result = false
     try {
-        const usuCreado = await usu.crearUsuario({
-            nombre: 'Body',
-            apellido: 'withBody',
-            dni: '11122233',
-            mail: 'ss@mail.com'
+        const sueldoCreado = await client.crearSueldo({
+            monto: '123456',
+            descripcion: 'withBody',
+            fecha: '11/11/1213'
         })
-        await usu.borrarUsuario(usuCreado.id)
-        validarUsuario(usuCreado)
+        await client.borrarSueldo(sueldoCreado.id)
+        validarSueldo(sueldoCreado)
         console.log("post with body: ok")
         result = true
     } catch (err) {
@@ -49,9 +46,9 @@ async function testPostWithBody() {
 async function testPostWithoutBody() {
     let result = false
     try {
-        const usuCreado = await usu.crearUsuario()
+        const sueldoCreado = await client.crearSueldo()
         console.log("post without body: error - no rechazó la petición!")
-        await usu.borrarUsuario(usuCreado.id)
+        await client.borrarSueldo(sueldoCreado.id)
     } catch (err) {
         if (err.statusCode == 400) {
             console.log('post without body: ok (with expected error)')
@@ -68,38 +65,34 @@ async function testGetAll() {
 
     const porCrear = [
         {
-            nombre: 'get1',
-            apellido: 'all',
-            dni: '2221',
-            mail: 's1@mail.com'
+            monto: '123456',
+            descripcion: 'withBody',
+            fecha: '11/11/1213'
         }, {
-            nombre: 'get2',
-            apellido: 'all',
-            dni: '2222',
-            mail: 's2@mail.com'
+            monto: '1234567',
+            descripcion: 'withBody1',
+            fecha: '11/11/1214'
         }, {
-            nombre: 'get3',
-            apellido: 'all',
-            dni: '2223',
-            mail: 's3@mail.com'
+            monto: '1234568',
+            descripcion: 'withBody2',
+            fecha: '11/11/1215'
         }, {
-            nombre: 'get4',
-            apellido: 'all',
-            dni: '2224',
-            mail: 's4@mail.com'
+            monto: '1234569',
+            descripcion: 'withBody3',
+            fecha: '11/11/1216'
         }
     ]
 
     const porBorrar = []
 
     try {
-        for (const user of porCrear) {
-            const { id } = await usu.crearUsuario(user)
+        for (const sueldo of porCrear) {
+            const { id } = await client.crearSueldo(sueldo)
             porBorrar.push(id)
         }
 
-        const usuarios = await usu.buscarTodos()
-        validarUsuarios(usuarios)
+        const sueldos = await client.buscarTodos()
+        validarSueldos(sueldos)
         console.log("get all: ok")
         result = true
     } catch (err) {
@@ -107,7 +100,7 @@ async function testGetAll() {
     } finally {
         for (const id of porBorrar) {
             try {
-                await usu.borrarUsuario(id)
+                await client.borrarSueldo(id)
             } catch (error) {
                 // ok
             }
@@ -120,31 +113,30 @@ async function testGetWithValidIdentifier() {
     let result = false
 
     const porCrear = {
-        nombre: 'get',
-        apellido: 'validId',
-        dni: '333',
-        mail: 'ss@mail.com'
+        monto: '123456',
+        descripcion: 'get',
+        fecha: '11/11/1213'
     }
 
     let idCreado
 
     try {
-        const { id } = await usu.crearUsuario(porCrear)
+        const { id } = await client.crearSueldo(porCrear)
         idCreado = id
-
-        const usuario = await usu.buscarPorId(id)
-        validarUsuario(usuario)
-        if (id == usuario.id) {
+        console.log('GET BY ID: ' + idCreado)
+        const sueldo = await client.buscarPorId(id)
+        validarSueldo(sueldo)
+        if (id == sueldo.id) {
             console.log("get by existing id: ok")
             result = true
         } else {
-            console.log("get by existing id: error - se encontró otro usuario")
+            console.log("get by existing id: error - se encontró otro sueldo")
         }
     } catch (err) {
         console.log(err.message)
     } finally {
         try {
-            await usu.borrarUsuario(idCreado)
+            await client.borrarSueldo(idCreado)
         } catch (error) {
             // ok
         }
@@ -155,7 +147,7 @@ async function testGetWithValidIdentifier() {
 async function testGetWithInvalidIdentifier() {
     let result = false
     try {
-        await usu.borrarUsuario(0)
+        await client.borrarSueldo(0)
     } catch (err) {
         if (err.statusCode != 404) {
             throw err
@@ -163,8 +155,8 @@ async function testGetWithInvalidIdentifier() {
     }
 
     try {
-        await usu.buscarPorId(0)
-        console.log("get by inexisting id: error - se encontró un usuario inexistente")
+        await client.buscarPorId(0)
+        console.log("get by inexisting id: error - se encontró un sueldo inexistente")
     } catch (err) {
         if (err.statusCode == 404) {
             console.log("get by inexistent id: ok (with expected error)")
@@ -179,15 +171,14 @@ async function testGetWithInvalidIdentifier() {
 async function testDeleteWithValidIdentifier() {
     let result = false
     try {
-        const { id } = await usu.crearUsuario({
-            nombre: 'delete',
-            apellido: 'validId',
-            dni: '555',
-            mail: 'ss@mail.com'
+        const { id } = await client.crearSueldo({
+            monto: '123456',
+            descripcion: 'delete',
+            fecha: '11/11/1213'
         })
-        await usu.borrarUsuario(id)
-        await usu.buscarPorId(id)
-        console.log("delete by existing id: error - no se borró el usuario")
+        await client.borrarSueldo(id)
+        await client.buscarPorId(id)
+        console.log("delete by existing id: error - no se borró el sueldo")
     } catch (err) {
         if (err.statusCode == 404) {
             console.log("delete by existing id: ok")
@@ -202,14 +193,13 @@ async function testDeleteWithValidIdentifier() {
 async function testDeleteWithInvalidIdentifier() {
     let result = false
     try {
-        const { id } = await usu.crearUsuario({
-            nombre: 'delete',
-            apellido: 'invalidId',
-            dni: '666',
-            mail: 's6@mail.com'
+        const { id } = await client.crearSueldo({
+            monto: '123456',
+            descripcion: 'deleteInvalid',
+            fecha: '11/11/1213'
         })
-        await usu.borrarUsuario(id)
-        await usu.borrarUsuario(id)
+        await client.borrarSueldo(id)
+        await client.borrarSueldo(id)
         console.log("delete by inexistent id: error - se borró algo que no debería existir")
     } catch (err) {
         if (err.statusCode == 404) {
@@ -226,41 +216,38 @@ async function testPutWithValidIdentifier() {
     let result = false
 
     const porCrear = {
-        nombre: 'put',
-        apellido: 'validId',
-        dni: '777',
-        mail: 'ss@mail.com'
+        monto: '123456',
+        descripcion: 'put',
+        fecha: '11/11/1213'
     }
 
     let idCreado
 
     try {
-        const { id } = await usu.crearUsuario(porCrear)
+        const { id } = await client.crearSueldo(porCrear)
         idCreado = id
+        const nuevaDescripcion = 'put2'
 
-        const nuevaNombre = 'put2'
-
-        await usu.reemplazarPorId(id, {
+        await client.reemplazarPorId(id, {
             id: id,
-            nombre: nuevaNombre,
-            apellido: 'validId2',
-            dni: '777',
-            mail: 'ss@mail.com'
+            monto: '123456',
+            descripcion: nuevaDescripcion,
+            fecha: '11/11/1213'
         })
 
-        const buscado = await usu.buscarPorId(id)
-        validarUsuario(buscado)
-        if (buscado.nombre == nuevaNombre) {
+        const buscado = await client.buscarPorId(id)
+        validarSueldo(buscado)
+        if (buscado.descripcion === nuevaDescripcion) {
             console.log("put by existing id: ok")
             result = true
         } else {
-            console.log("put by existing id: error - se encontró el mismo usuario sin reemplazar")
+            console.log("put by existing id: error - se encontró el mismo sueldo sin reemplazar")
         }
     } catch (err) {
         console.log(err.message)
     } finally {
         try {
-            await usu.borrarUsuario(idCreado)
+            await client.borrarSueldo(idCreado)
         } catch (error) {
             // ok
         }
@@ -272,27 +259,25 @@ async function testPutWithInvalidIdentifier() {
     let result = false
 
     const porCrear = {
-        nombre: 'put',
-        apellido: 'validId',
-        dni: '777',
-        mail: 'ss@mail.com'
+        monto: '123456',
+        descripcion: 'putInvalid',
+        fecha: '11/11/1213'
     }
 
     let idCreado
 
     try {
-        const { id } = await usu.crearUsuario(porCrear)
+        const { id } = await client.crearSueldo(porCrear)
         idCreado = id
-        await usu.borrarUsuario(id)
+        await client.borrarSueldo(id)
 
-        await usu.reemplazarPorId(id, {
+        await client.reemplazarPorId(id, {
             id: id,
-            nombre: 'put2',
-            apellido: 'validId2',
-            dni: '777',
-            mail: 'ss@mail.com'
+            monto: '1234562',
+            descripcion: 'putInvalid2',
+            fecha: '11/11/1213'
         })
-        console.log("put by inexistent id: error - se reemplazó un usuario inexistente")
+        console.log("put by inexistent id: error - se reemplazó un sueldo inexistente")
     } catch (err) {
         if (err.statusCode == 404) {
             console.log("put by inexistent id: ok")
@@ -302,7 +287,7 @@ async function testPutWithInvalidIdentifier() {
         }
     } finally {
         try {
-            await usu.borrarUsuario(idCreado)
+            await client.borrarSueldo(idCreado)
         } catch (error) {
             // ok
         }

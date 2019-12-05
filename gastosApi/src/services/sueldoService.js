@@ -1,35 +1,39 @@
-const repository = require('../repositories/sueldoRepository')
+const repoSueldos = require('../repositories/sueldoRepository')
 
 async function getAll() {
-    const result = repository.getAll()
+    const result = repoSueldos.getAll()
+    return result
+}
+
+async function getById(id) {
+    const result = repoSueldos.getById(id)
     return result
 }
 
 async function add(nuevo) {
-    const result = repository.add(nuevo)
+    const result = repoSueldos.add(nuevo)
     return result
 }
 
 async function deleteById(id) {
-    const result = repository.deleteById(id)
-    
-    if (result == 0) {
+    const result = repoSueldos.deleteById(id)
+    if (result === 0) {
         throw { status: 404, operacion: "deleteById", descripcion: "no existe un saldo con el id dado" }
     }
-    return
+    return result
 }
 
-async function updateById(id, nuevoSaldo) {
-    const result = repository.updateById(id, nuevoSaldo)
-    
-    if (result == 0) {
+async function updateById(id, nuevoSueldo) {
+    const result = repoSueldos.updateById(id, nuevoSueldo)
+    if (result === 0) {
         throw { status: 404, operacion: "updateById", descripcion: "no existe un saldo con el id dado" }
     }
-    return nuevoSaldo
+    return result
 }
 
 module.exports = {
     getAll,
+    getById,
     add,
     deleteById,
     updateById

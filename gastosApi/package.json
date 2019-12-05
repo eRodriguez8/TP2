@@ -5,6 +5,9 @@
   "main": "",
   "scripts": {
     "start": "node src/server.js",
+    "gastoTestDev": "./node_modules/.bin/nodemon src/test/gastoTest/gasto.js",
+    "sueldoTestDev": "./node_modules/.bin/nodemon src/test/sueldoTest/sueldo.js",
+    "usuarioTestDev": "./node_modules/.bin/nodemon src/test/usuarioTest/usuario.js",
     "startDev": "./node_modules/.bin/nodemon ./src/server.js",
     "initDB": "node database/crearDB.js"
   },

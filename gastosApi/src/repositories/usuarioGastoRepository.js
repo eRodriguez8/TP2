@@ -2,9 +2,9 @@ const knex = require('../db/knex')
 
 async function add(nueva) {
     try {
-        knex('foto').insert(nueva)
+        knex('gastoFoto').insert(nueva)
 
-        const [nuevaId] = await knex('foto').insert(nueva)
+        const [nuevaId] = await knex('usuarioGasto').insert(nueva)
         nueva.id = nuevaId
         return nueva
     } catch (err) {
@@ -12,11 +12,11 @@ async function add(nueva) {
     }
 }
 
-async function deleteByPath(path) {
+async function deleteById(id) {
     try {
-        const result = await knex('foto').where('ruta', path).del()
+        const result = await knex('usuarioGasto').where('idGasto', id).del()
         if (result === 0) {
-            throw { status: 404, operacion: "deleteByName", descripcion: "no existe una foto con el nombre dado" }
+            throw { status: 404, operacion: "deleteById", descripcion: "no existe una relacion con el id dado" }
         }
         return result
     } catch (err) {
@@ -30,5 +30,5 @@ async function deleteByPath(path) {
 
 module.exports = {
     add,
-    deleteByPath
+    deleteById
 }
