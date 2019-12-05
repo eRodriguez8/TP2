@@ -1,5 +1,5 @@
 {
-  "name": "06-web-server-con-db",
+  "name": "gastosApi",
   "version": "1.0.0",
   "description": "",
   "main": "",
@@ -9,8 +9,7 @@
     "sueldoTestDev": "./node_modules/.bin/nodemon src/test/sueldoTest/sueldo.js",
     "usuarioTestDev": "./node_modules/.bin/nodemon src/test/usuarioTest/usuario.js",
     "startDev": "./node_modules/.bin/nodemon ./src/server.js",
-    "initDB": "node database/crearDB.js",
-    "test": "node src/test/usuariosTest/usuario.js"
+    "initDB": "node database/crearDB.js"
   },
   "keywords": [],
   "author": "",
